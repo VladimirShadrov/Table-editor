@@ -45,7 +45,7 @@ eval("\n\n__webpack_require__(/*! core-js/es6 */ \"../node_modules/core-js/es6/i
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.scss */ \"./styles/styles.scss\");\n/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/editor.scss */ \"./styles/editor.scss\");\n\n\n\n//# sourceURL=webpack:///./js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.scss */ \"./styles/styles.scss\");\n/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/editor.scss */ \"./styles/editor.scss\");\n/* harmony import */ var _styles_modal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/modal.scss */ \"./styles/modal.scss\");\n\n\n\n\n//# sourceURL=webpack:///./js/index.js?");
 
 /***/ }),
 
@@ -3963,6 +3963,20 @@ eval("__webpack_require__(/*! ../modules/web.timers */ \"../node_modules/core-js
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./styles/editor.scss?");
+
+/***/ }),
+
+/***/ "./styles/modal.scss":
+/*!***************************!*\
+  !*** ./styles/modal.scss ***!
+  \***************************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./styles/modal.scss?");
 
 /***/ }),
 
