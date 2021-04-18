@@ -1,0 +1,174 @@
+@import './styles.scss';
+
+.editor {
+  background: rgba(174, 36, 115, 1);
+  background: linear-gradient(
+    to top right,
+    rgba(174, 36, 115, 1),
+    rgba(91, 76, 201, 1)
+  );
+  padding-bottom: 25px;
+  // width: 100%;
+  // height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 70px;
+  margin-bottom: 30px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $lightGrey;
+  }
+
+  &__button {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    height: 30px;
+    max-width: 200px;
+    color: $lightGrey;
+    background-color: transparent;
+    outline: none;
+    border: 3px solid $lightGrey;
+    border-radius: 5px;
+    padding: 6px 15px;
+    transition: 0.3s;
+
+    &:hover {
+      border: 3px solid $white;
+      color: $white;
+    }
+  }
+}
+
+.box {
+  background-color: $lightGrey;
+  padding: 0 15px;
+  border-radius: 10px;
+
+  &__empty {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  &__item {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid $textColor;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__image-container {
+    width: 60%;
+    padding: 20px 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      right: 0;
+      width: 1px;
+      height: 80%;
+      background-color: $textColor;
+    }
+  }
+
+  &__image {
+    box-shadow: 0px 15px 27px 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+  }
+
+  &__image-square {
+    max-width: 150px;
+    min-height: 150px;
+    background-color: rgba(84, 135, 114, 1);
+  }
+
+  &__image-circle {
+    max-width: 150px;
+    min-height: 150px;
+    border-radius: 50%;
+    background-color: rgb(141, 41, 143);
+  }
+
+  &__image-rectangle {
+    max-width: 300px;
+    min-height: 150px;
+    background-color: rgba(157, 188, 235, 1);
+  }
+
+  &__image-oval {
+    max-width: 300px;
+    min-height: 150px;
+    border-radius: 50%;
+    background-color: rgba(60, 50, 120, 1);
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+  }
+
+  &__show,
+  &__change,
+  &__delete {
+    display: block;
+    width: 150px;
+    height: 35px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    line-height: 40px;
+    color: $lightGrey;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    outline: none;
+    opacity: 1;
+    box-shadow: 0px 15px 27px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &__delete {
+    margin-bottom: 0;
+    background-color: rgba(237, 9, 25, 1);
+  }
+
+  &__change {
+    background-color: rgba(25, 9, 127, 1);
+  }
+
+  &__show {
+    background-color: rgba(84, 135, 114, 1);
+  }
+}

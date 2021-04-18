@@ -75,3 +75,20 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+// Общие стили
+$white: rgba(255, 255, 255, 1);
+$textColor: rgba(60, 60, 60, 1);
+$lightGrey: rgba(220, 220, 220, 1);
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  color: $textColor;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
