@@ -301,21 +301,31 @@ body {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s; }
-    .box__show:hover, .box__change:hover, .box__delete:hover {
-      opacity: 0.6;
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
-      transition: 0.3s; }
     .box__show:active, .box__change:active, .box__delete:active {
       -webkit-box-shadow: none;
               box-shadow: none; }
   .box__delete {
     margin-bottom: 0;
     background-color: #ed0919; }
+    .box__delete:hover {
+      background-color: #bf0a0a;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
   .box__change {
-    background-color: #19097f; }
+    background-color: #360ca8; }
+    .box__change:hover {
+      background-color: #09085c;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
   .box__show {
-    background-color: #548772; }
+    background-color: #059c78; }
+    .box__show:hover {
+      background-color: #037359;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s; }
 
 @media (max-width: 650px) {
   .box__item {

@@ -104,7 +104,7 @@
     max-width: 150px;
     min-height: 150px;
     border-radius: 50%;
-    background-color: rgb(141, 41, 143);
+    background-color: rgba(141, 41, 143, 1);
   }
 
   &__image-rectangle {
@@ -147,10 +147,10 @@
     box-shadow: 0px 15px 27px 5px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
 
-    &:hover {
-      opacity: 0.6;
-      transition: 0.3s;
-    }
+    // &:hover {
+    //   opacity: 0.6;
+    //   transition: 0.3s;
+    // }
 
     &:active {
       box-shadow: none;
@@ -160,14 +160,29 @@
   &__delete {
     margin-bottom: 0;
     background-color: rgba(237, 9, 25, 1);
+
+    &:hover {
+      background-color: rgba(191, 10, 10, 1);
+      transition: 0.3s;
+    }
   }
 
   &__change {
-    background-color: rgba(25, 9, 127, 1);
+    background-color: rgba(54, 12, 168, 1);
+
+    &:hover {
+      background-color: rgba(9, 8, 92, 1);
+      transition: 0.3s;
+    }
   }
 
   &__show {
-    background-color: rgba(84, 135, 114, 1);
+    background-color: rgba(5, 156, 120, 1);
+
+    &:hover {
+      background-color: rgba(3, 115, 89, 1);
+      transition: 0.3s;
+    }
   }
 }
 
