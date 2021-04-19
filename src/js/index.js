@@ -6,7 +6,8 @@ import { getArrayOfDomItems } from './helpers/helpers';
 import { drowCurrentCatalogElements } from './helpers/helpers';
 import { createAddOrEditModal } from './helpers/helpers';
 import { createProductDemonstrationModal } from './helpers/helpers';
-import { openModalWindow } from './helpers/helpers';
+import { openAddOrEditModal } from './helpers/helpers';
+import { openProductDemonstrationModal } from './helpers/helpers';
 import { closeModalWindow } from './helpers/helpers';
 
 const editor = getDomItem('.editor');
@@ -22,7 +23,7 @@ editor.addEventListener('click', (event) => {
     event.target.dataset.id === 'add-item' ||
     event.target.dataset.name === 'change'
   ) {
-    openModalWindow(createAddOrEditModal, modalContainer, '.modal-change');
+    openAddOrEditModal(createAddOrEditModal, modalContainer, '.modal-change');
   }
 
   if (
@@ -35,7 +36,9 @@ editor.addEventListener('click', (event) => {
   }
 
   if (event.target.dataset.name === 'show') {
-    openModalWindow(
+    openProductDemonstrationModal(
+      'currentItems',
+      event,
       createProductDemonstrationModal,
       modalContainer,
       '.modal-show'

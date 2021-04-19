@@ -120,7 +120,6 @@ export function createProductDemonstrationModal(container) {
   <div class="modal-show">
     <span class="modal-change__close" data-id="close-modal"></span>
     <div class="modal-show__item-container">
-      <div class="modal-show__item modal-show__rectangle"></div>
     </div>
     <a href="#" class="modal-show__btn-close" data-id="close">Закрыть</a>
   </div>
@@ -129,11 +128,33 @@ export function createProductDemonstrationModal(container) {
   insertHtmlIntoContainer(container, html);
 }
 
-// Открыть модальное окно
-export function openModalWindow(createModalFunc, container, modalSelector) {
+// Открыть модальное окно добавления или изменения товара
+export function openAddOrEditModal(createModalFunc, container, modalSelector) {
   createModalFunc(container);
   const modal = getDomItem(modalSelector);
 
+  container.style.zIndex = '1';
+  setTimeout(() => (modal.style.transform = 'scale(1)'), 100);
+}
+
+// Открыть модальное окно демонстрации товара
+export function openProductDemonstrationModal(
+  key,
+  event,
+  createModalFunc,
+  container,
+  modalSelector
+) {
+  const data = getFromLocalStorage(key);
+  const id = event.target.dataset.id;
+  const selectedItem = data.find((item) => item.id === +id);
+  createModalFunc(container);
+  const modal = getDomItem(modalSelector);
+  const productContainer = modal.querySelector('.modal-show__item-container');
+  const product = `<div class="${selectedItem.viewingClass}"></div>`;
+
+  insertHtmlIntoContainer(productContainer, product);
+  productContainer.firstElementChild.style.backgroundColor = `${selectedItem.color}`;
   container.style.zIndex = '1';
   setTimeout(() => (modal.style.transform = 'scale(1)'), 100);
 }
