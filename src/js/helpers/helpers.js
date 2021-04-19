@@ -34,6 +34,17 @@ export function createEmptyBlock(container) {
   insertHtmlIntoContainer(container, html);
 }
 
+// Задать идентификаторы элементам каталога
+export function setIdCatalogItems(key, defaultValue) {
+  const data = getFromLocalStorage(key) || defaultValue;
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].id = i + 1;
+  }
+
+  setToLocalStorage(key, data);
+}
+
 // Отрисовка элементов каталога
 export function drowCurrentCatalogElements(key, container) {
   const currentData = getFromLocalStorage(key) || defaultData;
@@ -55,6 +66,10 @@ export function drowCurrentCatalogElements(key, container) {
   });
 
   insertHtmlIntoContainer(container, html);
+
+  if (!currentData.length) {
+    showMessageEmpyCatalog(container);
+  }
 }
 
 // HTML Модального окна добавления/изменения элемента каталога
@@ -174,4 +189,24 @@ export function closeModalWindow(
   modal.style.transform = 'scale(0)';
   container.style.zIndex = '-1';
   setTimeout(() => (container.innerHTML = ''), 500);
+}
+
+// Удалить элемент каталога
+export function deleteCatalogItem(event, key, container) {
+  const catalog = getFromLocalStorage(key);
+  const catalogItemIndex = catalog.findIndex(
+    (item) => item.id === +event.target.dataset.id
+  );
+
+  catalog.splice(catalogItemIndex, 1);
+
+  setIdCatalogItems('currentItems', catalog);
+  drowCurrentCatalogElements(key, container);
+}
+
+// Добавить сообщение, что товары в каталоге отсутствуют
+export function showMessageEmpyCatalog(container) {
+  const message =
+    '<div class="box__empty">Вы не добавили в каталог ни одного элемента</div>';
+  insertHtmlIntoContainer(container, message);
 }

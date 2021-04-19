@@ -1,6 +1,6 @@
-import { setToLocalStorage } from '../helpers/helpers';
+import { setIdCatalogItems } from '../helpers/helpers';
 
-export const defaultData = [
+export let defaultData = [
   {
     name: 'square',
     type: 'square',
@@ -35,4 +35,4 @@ export const defaultData = [
   },
 ];
 
-setToLocalStorage('currentItems', defaultData);
+setIdCatalogItems('currentItems', defaultData);

@@ -9,6 +9,7 @@ import { createProductDemonstrationModal } from './helpers/helpers';
 import { openAddOrEditModal } from './helpers/helpers';
 import { openProductDemonstrationModal } from './helpers/helpers';
 import { closeModalWindow } from './helpers/helpers';
+import { deleteCatalogItem } from './helpers/helpers';
 
 const editor = getDomItem('.editor');
 const productsBox = getDomItem('.box');
@@ -43,5 +44,9 @@ editor.addEventListener('click', (event) => {
       modalContainer,
       '.modal-show'
     );
+  }
+
+  if (event.target.dataset.name === 'delete') {
+    deleteCatalogItem(event, 'currentItems', productsBox);
   }
 });
