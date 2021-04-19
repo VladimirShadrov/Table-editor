@@ -24,7 +24,7 @@ export function createEmptyBlock(container) {
 
 export function drowCurrentProductsElements(key, container) {
   const currentData = getFromLocalStorage(key) || defaultData;
-  const html = '';
+  let html = '';
 
   currentData.forEach((item) => {
     html += `
