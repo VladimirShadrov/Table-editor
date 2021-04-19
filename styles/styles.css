@@ -75,11 +75,6 @@ body {
   font-weight: 400;
   color: #3c3c3c; }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px; }
-
 * {
   padding: 0;
   margin: 0;
@@ -154,17 +149,18 @@ body {
   font-weight: 400;
   color: #3c3c3c; }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px; }
-
 .editor {
   background: #ae2473;
   background: -webkit-gradient(linear, left bottom, right top, from(#ae2473), to(#5b4cc9));
   background: -o-linear-gradient(bottom left, #ae2473, #5b4cc9);
   background: linear-gradient(to top right, #ae2473, #5b4cc9);
-  padding-bottom: 25px; }
+  padding-bottom: 25px;
+  height: 100%; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px; }
 
 .header {
   display: -webkit-box;
@@ -448,11 +444,6 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
   color: #3c3c3c; }
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 15px; }
 
 .overlay {
   position: fixed;
