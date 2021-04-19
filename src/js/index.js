@@ -1,9 +1,44 @@
 import '../styles/styles.scss';
 import '../styles/editor.scss';
 import '../styles/modal.scss';
-import { drowCurrentProductsElements } from './helpers/helpers';
+import { getDomItem } from './helpers/helpers';
+import { getArrayOfDomItems } from './helpers/helpers';
+import { drowCurrentCatalogElements } from './helpers/helpers';
+import { createAddOrEditModal } from './helpers/helpers';
+import { createProductDemonstrationModal } from './helpers/helpers';
+import { openModalWindow } from './helpers/helpers';
+import { closeModalWindow } from './helpers/helpers';
 
-const editor = document.querySelector('.editor');
-const productsBox = document.querySelector('.box');
+const editor = getDomItem('.editor');
+const productsBox = getDomItem('.box');
+const modalContainer = getDomItem('.overlay');
 
-drowCurrentProductsElements('currentItems', productsBox);
+drowCurrentCatalogElements('currentItems', productsBox);
+
+editor.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (
+    event.target.dataset.id === 'add-item' ||
+    event.target.dataset.name === 'change'
+  ) {
+    openModalWindow(createAddOrEditModal, modalContainer, '.modal-change');
+  }
+
+  if (
+    event.target === modalContainer ||
+    event.target.dataset.id === 'close-modal' ||
+    event.target.dataset.id === 'cancel' ||
+    event.target.dataset.id === 'close'
+  ) {
+    closeModalWindow(modalContainer, '.modal-change', '.modal-show');
+  }
+
+  if (event.target.dataset.name === 'show') {
+    openModalWindow(
+      createProductDemonstrationModal,
+      modalContainer,
+      '.modal-show'
+    );
+  }
+});

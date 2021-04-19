@@ -1,5 +1,17 @@
 import { defaultData } from '../data/data';
 
+export function getDomItem(selector) {
+  const domItem = document.querySelector(selector);
+
+  return domItem;
+}
+
+export function getArrayOfDomItems(selector) {
+  const arrayOfDomItes = document.querySelectorAll(selector);
+
+  return arrayOfDomItes;
+}
+
 export function setToLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
@@ -22,7 +34,8 @@ export function createEmptyBlock(container) {
   insertHtmlIntoContainer(container, html);
 }
 
-export function drowCurrentProductsElements(key, container) {
+// Отрисовка элементов каталога
+export function drowCurrentCatalogElements(key, container) {
   const currentData = getFromLocalStorage(key) || defaultData;
   let html = '';
 
@@ -30,16 +43,114 @@ export function drowCurrentProductsElements(key, container) {
     html += `
     <div class="box__item">
       <div class="box__image-container">
-        <div class="${item.class}" data-id="${item.id}"></div>
+        <div class="${item.class}" data-id="${item.id}" data-type="${item.type}"></div>
       </div>
       <div class="box__controls">
-        <a href="#" class="box__show" data-id="show">Увеличить</a>
-        <a href="#" class="box__change" data-id="change">Изменить</a>
-        <a href="#" class="box__delete" data-id="delete">Удалить</a>
+        <a href="#" class="box__show" data-name="show" data-type="${item.type}" data-id="${item.id}">Увеличить</a>
+        <a href="#" class="box__change" data-name="change" data-id="${item.id}">Изменить</a>
+        <a href="#" class="box__delete" data-name="delete" data-id="${item.id}">Удалить</a>
       </div>
     </div>
 `;
   });
 
   insertHtmlIntoContainer(container, html);
+}
+
+// HTML Модального окна добавления/изменения элемента каталога
+export function createAddOrEditModal(container) {
+  const html = `
+  <div class="modal-change">
+    <span class="modal-change__close" data-id="close-modal"></span>
+    <div class="modal-change__figure-container">
+      <h3 class="modal-change__title">Выберите элемент:</h3>
+      <div class="modal-change__items-wrapper">
+        <div class="modal-change__item-squere"></div>
+        <div class="modal-change__item-circle"></div>
+        <div class="modal-change__item-rectangle"></div>
+        <div class="modal-change__item-oval"></div>
+      </div>
+    </div>
+    <div class="modal-change__color-container">
+      <h3 class="modal-change__color-title">Выберите цвет:</h3>
+      <label>
+        <input
+          name="Background"
+          type="color"
+          class="modal-change__input"
+        />
+        <div class="modal-change__color"></div>
+      </label>
+    </div>
+    <div class="modal-change__color-result-container">
+      <h3 class="modal-change__color-title">Ваш цвет:</h3>
+      <div class="modal-change__color-result"></div>
+    </div>
+    <div class="modal-change__colors-wrapper">
+      <div class="modal-change__colors-item">
+        <div class="modal-change__colors-value">105, 101, 120</div>
+        <p class="modal-change__colors-format">RGB</p>
+      </div>
+      <div class="modal-change__colors-item">
+        <div class="modal-change__colors-value">#696578a2</div>
+        <p class="modal-change__colors-format">HEX</p>
+      </div>
+      <div class="modal-change__colors-item">
+        <div class="modal-change__colors-value">252, 16, 47, 0.64</div>
+        <p class="modal-change__colors-format">HSV</p>
+      </div>
+    </div>
+    <div class="modal-change__buttons-wrapper">
+      <a href="#" class="modal-change__btn-apply" data-id="add"
+        >Добавить</a
+      >
+      <a href="#" class="modal-change__btn-cancel" data-id="cancel"
+        >Отмена</a
+      >
+    </div>
+  </div>
+  `;
+
+  insertHtmlIntoContainer(container, html);
+}
+
+// HTML Модального окна просмотра элемента каталога
+export function createProductDemonstrationModal(container) {
+  const html = `
+  <div class="modal-show">
+    <span class="modal-change__close" data-id="close-modal"></span>
+    <div class="modal-show__item-container">
+      <div class="modal-show__item modal-show__rectangle"></div>
+    </div>
+    <a href="#" class="modal-show__btn-close" data-id="close">Закрыть</a>
+  </div>
+`;
+
+  insertHtmlIntoContainer(container, html);
+}
+
+// Открыть модальное окно
+export function openModalWindow(createModalFunc, container, modalSelector) {
+  createModalFunc(container);
+  const modal = getDomItem(modalSelector);
+
+  container.style.zIndex = '1';
+  setTimeout(() => (modal.style.transform = 'scale(1)'), 100);
+}
+
+// Закрыть модальное окно
+export function closeModalWindow(
+  container,
+  modalAddProductSelector,
+  modalShowProductSelector
+) {
+  let modal = getDomItem(modalAddProductSelector);
+
+  if (!modal) {
+    modal = getDomItem(modalShowProductSelector);
+  }
+
+  modal.style.transform = 'scale(0)';
+  container.style.zIndex = '-1';
+  setTimeout(() => (container.innerHTML = ''), 500);
 }
