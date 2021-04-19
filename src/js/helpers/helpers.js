@@ -35,9 +35,7 @@ export function createEmptyBlock(container) {
 }
 
 // Задать идентификаторы элементам каталога
-export function setIdCatalogItems(key, defaultValue) {
-  const data = getFromLocalStorage(key) || defaultValue;
-
+export function setIdCatalogItems(key, data) {
   for (let i = 0; i < data.length; i++) {
     data[i].id = i + 1;
   }
@@ -46,8 +44,9 @@ export function setIdCatalogItems(key, defaultValue) {
 }
 
 // Отрисовка элементов каталога
-export function drowCurrentCatalogElements(key, container) {
-  const currentData = getFromLocalStorage(key) || defaultData;
+export function drowCurrentCatalogElements(key, container, defaultValue) {
+  const currentData = getFromLocalStorage(key) || defaultValue;
+
   let html = '';
 
   currentData.forEach((item) => {
@@ -192,16 +191,16 @@ export function closeModalWindow(
 }
 
 // Удалить элемент каталога
-export function deleteCatalogItem(event, key, container) {
+export function deleteCatalogItem(event, key, container, defaultValue) {
   const catalog = getFromLocalStorage(key);
   const catalogItemIndex = catalog.findIndex(
     (item) => item.id === +event.target.dataset.id
   );
 
   catalog.splice(catalogItemIndex, 1);
-
-  setIdCatalogItems('currentItems', catalog);
-  drowCurrentCatalogElements(key, container);
+  setIdCatalogItems(key, catalog);
+  setToLocalStorage(key, catalog);
+  drowCurrentCatalogElements(key, container, defaultValue);
 }
 
 // Добавить сообщение, что товары в каталоге отсутствуют

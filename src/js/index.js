@@ -1,6 +1,7 @@
 import '../styles/styles.scss';
 import '../styles/editor.scss';
 import '../styles/modal.scss';
+import { defaultData } from './data/data';
 import { getDomItem } from './helpers/helpers';
 import { getArrayOfDomItems } from './helpers/helpers';
 import { drowCurrentCatalogElements } from './helpers/helpers';
@@ -15,7 +16,7 @@ const editor = getDomItem('.editor');
 const productsBox = getDomItem('.box');
 const modalContainer = getDomItem('.overlay');
 
-drowCurrentCatalogElements('currentItems', productsBox);
+drowCurrentCatalogElements('currentItems', productsBox, defaultData);
 
 editor.addEventListener('click', (event) => {
   event.preventDefault();
@@ -47,6 +48,6 @@ editor.addEventListener('click', (event) => {
   }
 
   if (event.target.dataset.name === 'delete') {
-    deleteCatalogItem(event, 'currentItems', productsBox);
+    deleteCatalogItem(event, 'currentItems', productsBox, defaultData);
   }
 });
