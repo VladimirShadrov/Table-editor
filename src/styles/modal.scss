@@ -318,7 +318,8 @@
     flex-direction: column;
   }
 
-  .modal-change__color-title {
+  .modal-change__color-title,
+  .modal-change__color-format-title {
     margin-right: 0;
     margin-bottom: 15px;
   }
@@ -338,9 +339,5 @@
 
   .modal-show {
     margin-top: 35px;
-  }
-
-  .modal-change__color-format-title {
-    margin-bottom: 15px;
   }
 }
