@@ -773,7 +773,9 @@ body {
   .modal-change__btn-cancel {
     width: 120px; }
   .modal-show {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .modal-change__color-format-title {
+    margin-bottom: 15px; } }
 
 
 /*# sourceMappingURL=styles.css.map*/
