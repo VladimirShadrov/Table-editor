@@ -28,7 +28,6 @@ header,
 aside {
   display: block; }
 
-html,
 body {
   height: 100%;
   min-height: 100vh;
@@ -103,7 +102,6 @@ header,
 aside {
   display: block; }
 
-html,
 body {
   height: 100%;
   min-height: 100vh;
@@ -157,7 +155,7 @@ body {
   background: -o-linear-gradient(bottom left, #ae2473, #5b4cc9);
   background: linear-gradient(to top right, #ae2473, #5b4cc9);
   padding-bottom: 25px;
-  height: 100%; }
+  min-height: 100vh; }
 
 .container {
   max-width: 800px;
@@ -400,7 +398,6 @@ header,
 aside {
   display: block; }
 
-html,
 body {
   height: 100%;
   min-height: 100vh;
@@ -577,13 +574,14 @@ body {
             align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid #3c3c3c; }
-  .modal-change__color-title {
+  .modal-change__color-title, .modal-change__color-format-title {
     font-weight: 700; }
   .modal-change__input {
     display: none; }
   .modal-change__color {
-    width: 100px;
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
     background-color: blueviolet;
     margin-left: 20px;
     cursor: pointer; }
@@ -599,13 +597,6 @@ body {
             align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid #3c3c3c; }
-  .modal-change__color-title {
-    margin-right: 10px; }
-  .modal-change__color-result {
-    width: 50px;
-    height: 50px;
-    background-color: blue;
-    border-radius: 50%; }
   .modal-change__colors-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -613,33 +604,36 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #3c3c3c; }
-  .modal-change__colors-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .modal-change__colors-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    margin-bottom: 10px; }
+    .modal-change__colors-item:last-child {
+      margin-bottom: 0; }
   .modal-change__colors-value {
     width: 140px;
     height: 25px;
     border: 1px solid #3c3c3c;
-    margin-bottom: 10px;
+    margin-left: 15px;
     text-align: center;
     line-height: 25px;
     cursor: pointer; }
+  .modal-change__colors-value-active {
+    border: 1px solid blueviolet; }
   .modal-change__buttons-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -775,15 +769,6 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column; }
-  .modal-change__colors-item {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    margin-bottom: 15px; }
-  .modal-change__colors-value {
-    margin-bottom: 0;
-    margin-right: 15px; }
   .modal-change__btn-apply,
   .modal-change__btn-cancel {
     width: 120px; }

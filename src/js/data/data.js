@@ -33,22 +33,6 @@ export let defaultData = [
     class: 'box__image box__image-oval',
     viewingClass: 'modal-show__oval',
   },
-  {
-    name: 'rectangle',
-    type: 'rectangle',
-    color: 'rgba(157, 188, 235, 1)',
-    id: 3,
-    class: 'box__image box__image-rectangle',
-    viewingClass: 'modal-show__rectangle',
-  },
-  {
-    name: 'oval',
-    type: 'oval',
-    color: 'rgba(60, 50, 120, 1)',
-    id: 4,
-    class: 'box__image box__image-oval',
-    viewingClass: 'modal-show__oval',
-  },
 ];
 
 function setDefaultDataToStorage() {
