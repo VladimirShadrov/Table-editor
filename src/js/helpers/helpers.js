@@ -434,6 +434,9 @@ export function addNewItemToCatalog(
       viewingClass: itemData.viewingClass,
     };
 
+    itemData = '';
+    colorData = '';
+
     catalogItems.push(newElement);
     setIdCatalogItems(key, catalogItems);
     drowCurrentCatalogElements(key, container, defaultValue);

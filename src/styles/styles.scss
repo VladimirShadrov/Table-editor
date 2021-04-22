@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // сброс стилей
 * {
@@ -82,7 +82,7 @@ $textColor: rgba(60, 60, 60, 1);
 $lightGrey: rgba(220, 220, 220, 1);
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: $textColor;
 }
