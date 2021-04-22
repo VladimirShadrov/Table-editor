@@ -3,7 +3,6 @@ import '../styles/editor.scss';
 import '../styles/modal.scss';
 import { defaultData } from './data/data';
 import { getDomItem } from './helpers/helpers';
-import { getArrayOfDomItems } from './helpers/helpers';
 import { drowCurrentCatalogElements } from './helpers/helpers';
 import { createAddOrEditModal } from './helpers/helpers';
 import { createProductDemonstrationModal } from './helpers/helpers';
@@ -15,6 +14,8 @@ import { selectCatalogItem } from './helpers/helpers';
 import { selectColorForCatalogItem } from './helpers/helpers';
 import { selectColorFormat } from './helpers/helpers';
 import { addNewItemToCatalog } from './helpers/helpers';
+import { editExistCatalogItem } from './helpers/helpers';
+import { getIdModifiedCatalogItem } from './helpers/helpers';
 
 const editor = getDomItem('.editor');
 const productsBox = getDomItem('.box');
@@ -48,6 +49,7 @@ editor.addEventListener('click', (event) => {
       modalContainer,
       '.modal-change'
     );
+    getIdModifiedCatalogItem(event);
   }
 
   // Закрыть модальное окно
@@ -117,6 +119,23 @@ editor.addEventListener('click', (event) => {
       selectedItem,
       selectedColorFormat,
       'currentItems',
+      productsBox,
+      defaultData,
+      modalContainer,
+      '.modal-change',
+      '.modal-show'
+    );
+  }
+
+  // Изменить существующий элемент каталога
+  if (
+    event.target.textContent === 'Изменить' &&
+    event.target.classList.contains('modal-change__btn-apply')
+  ) {
+    editExistCatalogItem(
+      'currentItems',
+      selectedItem,
+      selectedColorFormat,
       productsBox,
       defaultData,
       modalContainer,

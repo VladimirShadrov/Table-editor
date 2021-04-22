@@ -443,7 +443,57 @@ export function addNewItemToCatalog(
       modalAddProductSelector,
       modalShowProductSelector
     );
-
-    console.log(catalogItems);
   }
+}
+
+// Изменить существующий элемент каталога
+export function getIdModifiedCatalogItem(target) {
+  const id = +target.target.dataset.id;
+  localStorage.setItem('id', id);
+}
+
+export function editExistCatalogItem(
+  key,
+  itemData,
+  colorData,
+  container,
+  defaultValue,
+  modalContainer,
+  modalAddProductSelector,
+  modalShowProductSelector
+) {
+  const catalogItems = getFromLocalStorage(key);
+  let id = localStorage.getItem('id');
+  const itemIndex = catalogItems.findIndex((item) => item.id === +id);
+  const currentItem = catalogItems.find((item) => item.id === +id);
+  const modifiedItem = {};
+
+  modifiedItem.id = currentItem.id;
+
+  if (itemData) {
+    modifiedItem.name = itemData.name;
+    modifiedItem.type = itemData.type;
+    modifiedItem.class = itemData.class;
+    modifiedItem.viewingClass = itemData.viewingClass;
+  } else {
+    modifiedItem.name = currentItem.name;
+    modifiedItem.type = currentItem.type;
+    modifiedItem.class = currentItem.class;
+    modifiedItem.viewingClass = currentItem.viewingClass;
+  }
+
+  if (colorData) {
+    modifiedItem.color = colorData;
+  } else {
+    modifiedItem.color = currentItem.color;
+  }
+
+  catalogItems.splice(itemIndex, 1, modifiedItem);
+  setToLocalStorage(key, catalogItems);
+  drowCurrentCatalogElements(key, container, defaultValue);
+  closeModalWindow(
+    modalContainer,
+    modalAddProductSelector,
+    modalShowProductSelector
+  );
 }
