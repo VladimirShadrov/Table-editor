@@ -25,7 +25,7 @@ let selectedColorFormat;
 
 drowCurrentCatalogElements('currentItems', productsBox, defaultData);
 
-editor.addEventListener('click', (event) => {
+editor.addEventListener('mousedown', (event) => {
   // Отмена дефолтного поведения для ссылок
   if (event.target.tagName.toLowerCase() === 'a') {
     event.preventDefault();
