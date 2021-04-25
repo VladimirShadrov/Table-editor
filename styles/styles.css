@@ -75,6 +75,9 @@ body {
   font-weight: 400;
   color: #3c3c3c; }
 
+.hide {
+  display: none; }
+
 * {
   padding: 0;
   margin: 0;
@@ -148,6 +151,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #3c3c3c; }
+
+.hide {
+  display: none; }
 
 .editor {
   background: #ae2473;
@@ -444,6 +450,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #3c3c3c; }
+
+.hide {
+  display: none; }
 
 .overlay {
   position: fixed;
