@@ -2,7 +2,11 @@ import '../styles/styles.scss';
 import '../styles/editor.scss';
 import '../styles/modal.scss';
 import { defaultData } from './data/data';
-import { getDomItem } from './helpers/helpers';
+import {
+  getArrayOfDomItems,
+  getDomItem,
+  setToLocalStorage,
+} from './helpers/helpers';
 import { drowCurrentCatalogElements } from './helpers/helpers';
 import { createAddOrEditModal } from './helpers/helpers';
 import { createProductDemonstrationModal } from './helpers/helpers';
@@ -143,4 +147,35 @@ editor.addEventListener('mousedown', (event) => {
       '.modal-show'
     );
   }
+});
+
+// Перемещение элементов
+
+productsBox.addEventListener('dragstart', (event) => {
+  const item = event.target.closest('.box__item');
+  item.classList.add('selected');
+});
+
+productsBox.addEventListener('dragend', (event) => {
+  const item = event.target.closest('.box__item');
+  item.classList.remove('selected');
+});
+
+productsBox.addEventListener('dragover', (event) => {
+  event.preventDefault();
+
+  const activeElement = productsBox.querySelector('.selected');
+  const currentElement = event.target;
+  const movableItem =
+    activeElement !== currentElement &&
+    currentElement.classList.contains('box__item');
+
+  if (!movableItem) return;
+
+  const nextElement =
+    currentElement === activeElement.nextElementSibling
+      ? currentElement.nextElementSibling
+      : currentElement;
+
+  productsBox.insertBefore(activeElement, nextElement);
 });

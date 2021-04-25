@@ -51,7 +51,7 @@ export function drowCurrentCatalogElements(key, container, defaultValue) {
 
   currentData.forEach((item) => {
     html += `
-    <div class="box__item">
+    <div class="box__item" draggable="true">
       <div class="box__image-container">
         <div class="${item.class}" style="background-color: ${item.color}" data-id="${item.id}" data-type="${item.type}"></div>
       </div>
